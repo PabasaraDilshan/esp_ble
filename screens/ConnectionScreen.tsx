@@ -1,7 +1,7 @@
 import {View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import BleManager from 'react-native-ble-manager';
-import {ListItem} from '@rneui/themed';
+import {ListItem, Text} from '@rneui/themed';
 import {bytesToString} from 'convert-string';
 
 const Characteristic: React.FC<{characteristic: any; con: any}> = ({
@@ -46,6 +46,10 @@ const ConnectionScreen: React.FC<{route: any}> = ({route}) => {
 
   return (
     <View>
+      <View style={{alignItems: 'center'}}>
+        <Text h3>{con.name}</Text>
+      </View>
+
       {con.characteristics?.map(characteristic => {
         return (
           <Characteristic
