@@ -1,10 +1,4 @@
-import {
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-  ToastAndroid,
-} from 'react-native';
+import {ScrollView, StyleSheet, TouchableOpacity, View} from 'react-native';
 
 import {Button, Text, ListItem} from '@rneui/themed';
 import React, {useEffect, useState} from 'react';
@@ -43,9 +37,6 @@ const SearchScreen: React.FC<{navigation: any}> = ({navigation}) => {
                   console.log('Scan stopped');
                   BleManager.getDiscoveredPeripherals().then(
                     peripheralsArray => {
-                      // Success code
-                      // console.log(peripheralsArray);
-                      // console.log(peripheralsArray);
                       setdeviceList(peripheralsArray);
                       setisLoading(false);
                     },

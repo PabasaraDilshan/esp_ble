@@ -11,6 +11,7 @@ const Characteristic: React.FC<{characteristic: any; con: any}> = ({
   const [val, setval] = useState(null);
   useEffect(() => {
     const refetch = setInterval(() => {
+      // Reading characteristic using connection id and characteristic id for every 2 second
       BleManager.read(
         con.id,
         characteristic.service,
@@ -42,6 +43,7 @@ const Characteristic: React.FC<{characteristic: any; con: any}> = ({
 };
 
 const ConnectionScreen: React.FC<{route: any}> = ({route}) => {
+  // All the connections
   const con: BleManager.PeripheralInfo = route.params;
 
   return (
@@ -49,8 +51,8 @@ const ConnectionScreen: React.FC<{route: any}> = ({route}) => {
       <View style={{alignItems: 'center'}}>
         <Text h3>{con.name}</Text>
       </View>
-
       {con.characteristics?.map(characteristic => {
+        //map all connections to views
         return (
           <Characteristic
             key={characteristic.characteristic}
